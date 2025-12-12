@@ -1,0 +1,6 @@
+import { supabase } from '../lib/supabaseClient';
+import { useState } from 'react';
+import Router from 'next/router';
+
+export default function Login(){ const [email,setEmail]=useState(''); const [password,setPassword]=useState(''); async function handleLogin(e:any){ e.preventDefault(); const { error } = await supabase.auth.signInWithPassword({ email, password }); if(error) alert(error.message); else Router.push('/dashboard'); } async function handleOAuth(provider:'github'|'google'){ await supabase.auth.signInWithOAuth({ provider }); } return (<div className="max-w-md mx-auto p-6 border rounded"><h2 className="text-xl font-bold mb-4">تسجيل الدخول</h2><form onSubmit={handleLogin} className="space-y-4"><input required type="email" placeholder="البريد الالكتروني" value={email} onChange={e=>setEmail(e.target.value)} className="w-full p-3 border rounded" /><input required type="password" placeholder="كلمة المرور" value={password} onChange={e=>setPassword(e.target.value)} className="w-full p-3 border rounded" /><button className="w-full bg-primary text-white p-3 rounded">دخول</button></form><div className="mt-4 flex gap-2"><button onClick={()=>handleOAuth('google')} className="flex-1 p-2 border rounded">Google</button><button onClick={()=>handleOAuth('github')} className="flex-1 p-2 border rounded">GitHub</button></div></div>);
+}

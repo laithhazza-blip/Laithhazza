@@ -1,0 +1,29 @@
+[
+  {
+    "title": "نظام إدارة المخزون",
+    "short_description": "نظام ويب لإدارة المخزون والمبيعات.",
+    "long_description": "نظام كامل لإدارة المخزون، الفواتير، وتقارير المبيعات.",
+    "image": "/placeholder.svg",
+    "tech": ["Next.js","Supabase","TailwindCSS"],
+    "live_url": "",
+    "github_url": "https://github.com/laithhazza-blip/sample-inventory"
+  },
+  {
+    "title": "لوحة تحكم تحليلات",
+    "short_description": "لوحة تحكم لعرض إحصائيات الموقع والزيارات.",
+    "long_description": "لوحة تعرض رسوم بيانية وإحصاءات باستخدام بيانات من Postgres.",
+    "image": "/placeholder.svg",
+    "tech": ["React","D3","Supabase"],
+    "live_url": "",
+    "github_url": "https://github.com/laithhazza-blip/analytics-dashboard"
+  },
+  {
+    "title": "تطبيق تدوين",
+    "short_description": "منصة تدوين بسيطة مع محرر Markdown.",
+    "long_description": "منصة تدوين مع نظام نشر ومراجعات ومحرر Markdown ومحرك بحث.",
+    "image": "/placeholder.svg",
+    "tech": ["Next.js","Supabase","Markdown"],
+    "live_url": "",
+    "github_url": "https://github.com/laithhazza-blip/tech-blog"
+  }
+]

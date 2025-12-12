@@ -1,0 +1,6 @@
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { supabase } from '../../lib/supabaseClient';
+
+export default function ProjectDetail(){ const router = useRouter(); const { id } = router.query; const [project,setProject]=useState<any>(null); useEffect(()=>{ if(!id) return; async function load(){ const { data } = await supabase.from('projects').select('*').eq('id',id).single(); setProject(data);} load(); },[id]); if(!project) return <div>جاري التحميل...</div>; return (<div className="space-y-6"><div className="flex gap-6"><img src={project.image || '/placeholder.svg'} className="w-1/3 rounded" /><div><h1 className="text-2xl font-bold">{project.title}</h1><p className="text-gray-600 dark:text-gray-300 mt-2">{project.long_description}</p><div className="mt-3 text-sm">التقنيات: {project.tech?.join(', ')}</div><div className="mt-3">{project.live_url && <a href={project.live_url} className="mr-3 text-primary">معاينة</a>}{project.github_url && <a href={project.github_url} className="text-gray-500">GitHub</a>}</div></div></div>{project.demo_video && (<div><h3 className="font-semibold mb-2">عرض توضيحي</h3><video controls src={project.demo_video} className="w-full rounded" /></div>)}</div>);
+}

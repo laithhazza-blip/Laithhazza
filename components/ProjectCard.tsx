@@ -1,0 +1,3 @@
+import Link from 'next/link';
+export default function ProjectCard({ project }: any) { return (<div className="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition"><img src={project.image || '/placeholder.svg'} className="w-full h-48 object-cover" alt={project.title} /><div className="p-4"><h3 className="font-semibold">{project.title}</h3><p className="text-sm text-gray-600 dark:text-gray-300 mt-2 line-clamp-2">{project.short_description}</p><div className="mt-3 flex justify-between items-center"><div className="text-xs text-gray-500">{project.tech?.join(' • ')}</div><Link href={`/projects/${project.id}`}><a className="text-primary">تفاصيل</a></Link></div></div></div>);
+}
